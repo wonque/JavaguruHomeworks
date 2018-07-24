@@ -1,12 +1,12 @@
 package Homework3.Stock;
 
 class Stock {
-
+     // объявление свойств класса
     private String company;
     double currentValue;
     double max;
     double min;
-
+    // создание конструктора класса
     Stock (String company, double currentValue) {
         this.company = company;
         this.currentValue = currentValue;
@@ -37,7 +37,7 @@ class Stock {
                 + "Max price: " + max;
     }
 
-    public double updatePrice (double newPrice) {
+    public void updatePrice (double newPrice) {
         this.currentValue = newPrice;
         if (newPrice <= this.getMin()) {
             this.setMin(newPrice);
@@ -48,7 +48,7 @@ class Stock {
         else if (newPrice >= this.getMax()) {
             this.setMax(newPrice);
         }
-        return this.currentValue;
+//        return this.currentValue;
         }
 
 }
