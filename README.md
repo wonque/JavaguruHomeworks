@@ -1,2 +1,0 @@
-# JavaguruHomeworks
-Javaguru Homeworks projects
