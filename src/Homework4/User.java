@@ -8,10 +8,7 @@ public class User {
     private boolean blocked;
 
 
-    public User(String nickname, String password) {
-
-        this.nickname = nickname;
-        this.password = password;
+    public User() {
         this.loginAttemptsLeft = 3;
         this.blocked = false;
     }
@@ -49,15 +46,13 @@ public class User {
     }
 
     public boolean verifyPassword(String password) {
-        if ((this.getLoginAttemptsLeft()!=0) && (!this.isBlocked()) && password.equals(this.getPassword())) {
+        if ((this.getLoginAttemptsLeft() != 0) && (!this.isBlocked()) && password.equals(this.getPassword())) {
             this.setLoginAttemptsLeft(3);
             return true;
-        }
-        else if (this.getLoginAttemptsLeft() == 0) {
+        } else if (this.getLoginAttemptsLeft() == 0) {
             this.setBlocked(true);
             return false;
-        }
-        else {
+        } else {
             int attemptsLeft = this.getLoginAttemptsLeft() - 1;
             this.setLoginAttemptsLeft(attemptsLeft);
             return false;
@@ -65,4 +60,6 @@ public class User {
 
     }
 }
+
+
 

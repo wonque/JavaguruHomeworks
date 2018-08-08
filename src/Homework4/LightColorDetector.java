@@ -22,9 +22,9 @@ public class LightColorDetector {
         if (wavelight>=620 && wavelight<750) {
             return "Red";
         }
-        else {
-            return "Light is not visible";
-        }
+
+        return "Light is not visible";
+
 
     }
 }
