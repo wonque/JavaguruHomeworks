@@ -2,6 +2,8 @@ package Homework5;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Objects;
+
 // Попробовал сделать, используя BigDecimal.
 // Для счета сделал бы отдельный класс - Account, а объект класса CreditCard уже привязал бы к объекту класса Account.
 public class CreditCard {
@@ -140,6 +142,23 @@ public class CreditCard {
 
     private boolean isNotNegative (double value){
         return value >0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CreditCard that = (CreditCard) o;
+        return Objects.equals(cardNumber, that.cardNumber) &&
+                Objects.equals(pinCode, that.pinCode) &&
+                Objects.equals(debitBalance, that.debitBalance) &&
+                Objects.equals(creditLimit, that.creditLimit) &&
+                Objects.equals(creditInUse, that.creditInUse);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardNumber, pinCode, debitBalance, creditLimit, creditInUse);
     }
 
     @Override
