@@ -12,7 +12,8 @@ public class Car {
         this.manufacturer = manufacturer;
         this.model = model;
         this.color = color;
-        this.maxSpeed = maxSpeed;
+        //default value
+        this.maxSpeed = 250;
         this.currentSpeed = 0;
     }
 
@@ -32,10 +33,44 @@ public class Car {
         return maxSpeed;
     }
 
-
-
-
-    private double getCurrentSpeed () {
+    public double getCurrentSpeed () {
         return currentSpeed;
     }
+
+    public void accelerate() {
+        if(this.canAccelerate()){
+            currentSpeed+=1;
+        }
+    }
+
+    public void slowDown() {
+        if(!this.isStopped()){
+            currentSpeed-=1;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", maxSpeed=" + maxSpeed +
+                ", currentSpeed=" + currentSpeed +
+                '}';
+    }
+
+    private boolean isStopped() {
+        if (currentSpeed==0){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean canAccelerate() {
+        return currentSpeed < maxSpeed;
+    }
+
+
+
 }
