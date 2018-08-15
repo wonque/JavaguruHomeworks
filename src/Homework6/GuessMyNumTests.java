@@ -7,6 +7,5 @@ public class GuessMyNumTests {
         GuessMyNumber game = new GuessMyNumber();
         game.play();
 
-
     }
 }
