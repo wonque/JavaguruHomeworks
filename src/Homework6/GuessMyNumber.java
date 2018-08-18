@@ -53,14 +53,14 @@ public class GuessMyNumber {
                     this.setUpperBound(newGuess);
                 }else if(this.isLow(answer)){
                     this.setLowerBound(newGuess);
-                }else{
+                }}
+                else{
                     System.out.println("Sorry, I did not understand your input.");
                 }
             }
 
         }
 
-    }
 
     private boolean isLow(String input){
         return input.equals("l");
