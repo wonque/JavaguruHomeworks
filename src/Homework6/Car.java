@@ -38,13 +38,13 @@ public class Car {
     }
 
     public void accelerate() {
-        if(this.canAccelerate()){
+        while(this.canAccelerate()){
             currentSpeed+=1;
         }
     }
 
     public void slowDown() {
-        if(!this.isStopped()){
+        while(!this.isStopped()){
             currentSpeed-=1;
         }
     }

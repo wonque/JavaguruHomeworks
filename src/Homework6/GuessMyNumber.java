@@ -61,7 +61,6 @@ public class GuessMyNumber {
 
         }
 
-
     private boolean isLow(String input){
         return input.equals("l");
     }
