@@ -1,20 +1,19 @@
 package Homework5.SomeCompany;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Department {
 
     private String name;
     private ArrayList<Employee> employees ;
     private Company company;
-    private Employee employee;
+    //private Employee employee;
 
     public Department (String name, Company company) {
         this.name = name;
         this.company = company;
         company.addDepartment(this);
-        employees = new ArrayList<Employee>();
+        employees = new ArrayList<>();
     }
 
     public void appendEmployee (Employee object) {

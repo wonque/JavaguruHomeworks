@@ -12,7 +12,7 @@ public class Company {
     public Company (String name, String registrationNumber) {
         this.name = name;
         this.registrationNumber = registrationNumber;
-        departments = new ArrayList<Department>();
+        departments = new ArrayList<>();
     }
 
     public void setRegistrationNumber(String registrationNumber) {
