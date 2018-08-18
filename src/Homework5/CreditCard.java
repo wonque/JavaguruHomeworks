@@ -23,7 +23,6 @@ public class CreditCard {
         this.creditLimit = new BigDecimal(0);
     }
 
-
     public BigDecimal getDebitBalance (){
         return debitBalance.setScale(3, BigDecimal.ROUND_HALF_UP);
     }

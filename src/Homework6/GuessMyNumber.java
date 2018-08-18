@@ -1,14 +1,12 @@
 package Homework6;
 
 import java.util.Scanner;
-import java.lang.Math;
 
 public class GuessMyNumber {
 
     private int lowerBound;
     private int upperBound;
     private int guess;
-    private int numberOfGuesses;
     private Scanner userInput;
 
     public GuessMyNumber() {
@@ -18,17 +16,13 @@ public class GuessMyNumber {
         this.userInput = new Scanner(System.in);
     }
 
-
-    public String askUserInput(double guess) {
+    public String askUserInput(int guess) {
         System.out.println("Is your number " + guess + " ?\n");
         System.out.println("Enter 'h' to indicate the guess is too high.\nEnter 'l' to indicate the guess is too low.\nEnter 'c' to indicate I guessed correctly.");
         System.out.println("\nYour input: ");
         return this.userInput.next();
     }
 
-    public void updateNumberOfGuesses() {
-        this.numberOfGuesses+=1;
-    }
 
     public void setLowerBound (int newValue){
         this.lowerBound = newValue;
@@ -48,7 +42,7 @@ public class GuessMyNumber {
 
     public void play () {
         System.out.println("Please think of a number between 1 and 100!");
-        while(Math.abs(this.lowerBound - this.upperBound)>=1){
+        while((upperBound - lowerBound)>=1){
             int newGuess = this.updateGuess();
             String answer = this.askUserInput(newGuess);
             if (this.isInputValid(answer)){

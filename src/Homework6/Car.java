@@ -48,7 +48,6 @@ public class Car {
             currentSpeed-=1;
         }
     }
-
     @Override
     public String toString() {
         return "Car{" +
