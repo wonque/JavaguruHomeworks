@@ -25,7 +25,5 @@ public abstract class Game {
             askHumanPlayerForMove(player);
         }
     }
-
-
 }
 
