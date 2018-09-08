@@ -8,7 +8,7 @@ public class Player {
     private String name;
     private String symbol;
 
-    public Player () {
+    public Player() {
         this.name = "";
         this.symbol = "";
     }
@@ -29,40 +29,42 @@ public class Player {
         return name;
     }
 
-    public int getID () {
+    public int getID() {
         return HUMAN;
     }
 
 
-    private static void assignSymbols (Player player1, Player player2){
-        if((player1.isHuman()) && (player2.isHuman())){
-        player1.setSymbol("X");
-        player2.setSymbol("0");
-    }else if((player1.isHuman()) && !(player2.isHuman())){
-            player1.setSymbol("0");
-            player2.setSymbol("X");
-        }else{
+    private static void assignSymbols(Player player1, Player player2) {
+        if ((player1.isHuman()) && (player2.isHuman())) {
             player1.setSymbol("X");
             player2.setSymbol("0");
-        } }
-
-    private static void assignNames (Player player1, Player player2){
-        if(player1.isHuman() && player2.isHuman()){
-        player1.setName("Player 1");
-        player2.setName("Player 2"); }
-        else if((player1.isHuman()) && !player2.isHuman()) {
-            player1.setName("HUMAN");
-            player2.setName("STUPID BOT"); }
-        else if(!player1.isHuman() && !player2.isHuman()){
-                player1.setName("Clint Eastwood");
-                player2.setName("Chuck Norris"); }
+        } else if ((player1.isHuman()) && !(player2.isHuman())) {
+            player1.setSymbol("0");
+            player2.setSymbol("X");
+        } else {
+            player1.setSymbol("X");
+            player2.setSymbol("0");
         }
-
-    private boolean isHuman (){
-        return this.getID() ==1;
     }
 
-    public static void setupPlayers (Player player1, Player player2) {
+    private static void assignNames(Player player1, Player player2) {
+        if (player1.isHuman() && player2.isHuman()) {
+            player1.setName("Player 1");
+            player2.setName("Player 2");
+        } else if ((player1.isHuman()) && !player2.isHuman()) {
+            player1.setName("HUMAN");
+            player2.setName("STUPID BOT");
+        } else if (!player1.isHuman() && !player2.isHuman()) {
+            player1.setName("Clint Eastwood");
+            player2.setName("Chuck Norris");
+        }
+    }
+
+    private boolean isHuman() {
+        return this.getID() == 1;
+    }
+
+    public static void setupPlayers(Player player1, Player player2) {
         assignNames(player1, player2);
         assignSymbols(player1, player2);
     }

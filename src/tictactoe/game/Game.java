@@ -11,19 +11,21 @@ public abstract class Game {
     public String currentHumanPlayerMove;
     public Board board;
 
-    public void play(){}
+    public void play() {
+    }
 
-    public void askHumanPlayerForMove (Player player){
+    public void askHumanPlayerForMove(Player player) {
         Scanner scObject = new Scanner(System.in);
         System.out.println(player.getName() + ", make a move: ");
         String input = scObject.next();
-        if(board.isMoveAvailable(input)){
+        if (board.isMoveAvailable(input)) {
             this.currentHumanPlayerMove = input;
-        }else{
+        } else {
             System.out.println("This move is unavailable, try again!");
             askHumanPlayerForMove(player);
-        }}
-
-
+        }
     }
+
+
+}
 

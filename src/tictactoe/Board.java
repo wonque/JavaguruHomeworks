@@ -4,61 +4,65 @@ import java.util.*;
 
 public class Board {
 
-    private String [] board;
+    private String[] board;
 
 
     public Board() {
         this.board = new String[9];
     }
 
-    public boolean isBoardFull (){
-        for (String item: board) {
-            if (!item.equals("X") && (!item.equals("0"))){
+    public boolean isBoardFull() {
+        for (String item : board) {
+            if (!item.equals("X") && (!item.equals("0"))) {
                 return false;
             }
 
-        }return true;
+        }
+        return true;
     }
 
-    public List<String> getEmptyCells (){
+    public List<String> getEmptyCells() {
         List<String> emptyCells = new ArrayList<>();
-        for(String item : board){
-            if(!item.equals("X") && (!item.equals("0"))){
+        for (String item : board) {
+            if (!item.equals("X") && (!item.equals("0"))) {
                 emptyCells.add(item);
             }
-        }return emptyCells;
+        }
+        return emptyCells;
     }
 
-    public String getCharacterFromIndex (int index) throws IndexOutOfBoundsException{
-        try{
-        return board[index];}
-        catch (IndexOutOfBoundsException e){
-            return "" ;
+    public String getCharacterFromIndex(int index) throws IndexOutOfBoundsException {
+        try {
+            return board[index];
+        } catch (IndexOutOfBoundsException e) {
+            return "";
         }
     }
 
 
-    public int getIndexOfCharacter (String character){
-        for(int i=0; i<board.length; i++){
-            if(board[i].equals(character)){
+    public int getIndexOfCharacter(String character) {
+        for (int i = 0; i < board.length; i++) {
+            if (board[i].equals(character)) {
                 return i;
             }
 
-        }return -1;
+        }
+        return -1;
     }
 
-    public boolean isMoveAvailable (String move) throws ArrayIndexOutOfBoundsException{
-        try{
-        return board[getIndexOfCharacter(move)].equals(move);}catch (ArrayIndexOutOfBoundsException e){
+    public boolean isMoveAvailable(String move) throws ArrayIndexOutOfBoundsException {
+        try {
+            return board[getIndexOfCharacter(move)].equals(move);
+        } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }
     }
 
-    public void setCharacter (int index, String symbol){
+    public void setCharacter(int index, String symbol) {
         board[index] = symbol;
     }
 
-    public int getSize(){
+    public int getSize() {
         return board.length;
     }
 
@@ -70,7 +74,6 @@ public class Board {
         }
 
     }
-
 
 
     public void displayBoard() {
