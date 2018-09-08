@@ -2,7 +2,7 @@ package tictactoe.game;
 
 
 import tictactoe.Board;
-import tictactoe.GameUtils;
+import tictactoe.WinChecks;
 import tictactoe.Player;
 
 public class HumanVsHuman extends Game {
@@ -36,13 +36,14 @@ public class HumanVsHuman extends Game {
         board.displayBoard();
         while (totalMoves != MOVES_AVAILABLE) {
             switchHumanPlayers(humanPlayer1, humanPlayer2);
-            if (GameUtils.performAllWinChecks(board, currentPlayer.getSymbol())) {
+            if (WinChecks.performAll(board, currentPlayer.getSymbol())) {
                 System.out.println(currentPlayer.getName().toUpperCase() + " WINS!");
                 break;
             }
             askHumanPlayerForMove(currentPlayer);
-            board.setCharacter(board.getIndexOfCharacter(currentHumanPlayerMove), currentPlayer.getSymbol());
-            if (GameUtils.performAllWinChecks(board, currentPlayer.getSymbol())) {
+            int indexOfCurrentCharacterOnBoard = board.getIndexOfCharacter(currentHumanPlayerMove);
+            board.setCharacter(indexOfCurrentCharacterOnBoard, currentPlayer.getSymbol());
+            if (WinChecks.performAll(board, currentPlayer.getSymbol())) {
                 System.out.println(currentPlayer.getName().toUpperCase() + " WINS!");
                 break;
             }

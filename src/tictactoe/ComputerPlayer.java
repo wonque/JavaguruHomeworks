@@ -28,10 +28,10 @@ public class ComputerPlayer extends Player {
 
     private static int miniMax(Board currentBoard, int depth, String symbol) {
 
-        if (GameUtils.performAllWinChecks(currentBoard, "X")) {
+        if (WinChecks.performAll(currentBoard, "X")) {
             return 1;
         }
-        if (GameUtils.performAllWinChecks(currentBoard, "0")) {
+        if (WinChecks.performAll(currentBoard, "0")) {
             return -1;
         }
         if (currentBoard.isBoardFull() || depth == 9) {

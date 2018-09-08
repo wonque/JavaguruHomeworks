@@ -2,7 +2,7 @@ package tictactoe.game;
 
 import tictactoe.Board;
 import tictactoe.ComputerPlayer;
-import tictactoe.GameUtils;
+import tictactoe.WinChecks;
 import tictactoe.Player;
 
 public class HumanVsAi extends HumanVsHuman {
@@ -28,7 +28,7 @@ public class HumanVsAi extends HumanVsHuman {
             int indexOfNUmberToReplace = board.getIndexOfCharacter(currentHumanPlayerMove);
             board.setCharacter(indexOfNUmberToReplace, humanPlayer1.getSymbol());
             board.displayBoard();
-            if (GameUtils.performAllWinChecks(board, humanPlayer1.getSymbol())) {
+            if (WinChecks.performAll(board, humanPlayer1.getSymbol())) {
                 System.out.println(humanPlayer1.getName().toUpperCase() + " WINS!");
                 break;
             } else if (board.isBoardFull()) {
@@ -38,7 +38,7 @@ public class HumanVsAi extends HumanVsHuman {
             String bestAiMove = aiPlayer1.findBestMove(board);
             int indexOfBestAiMove = board.getIndexOfCharacter(bestAiMove);
             board.setCharacter(indexOfBestAiMove, aiPlayer1.getSymbol());
-            if (GameUtils.performAllWinChecks(board, aiPlayer1.getSymbol())) {
+            if (WinChecks.performAll(board, aiPlayer1.getSymbol())) {
                 System.out.println(aiPlayer1.getName().toUpperCase() + " WINS!");
                 break;
             }
