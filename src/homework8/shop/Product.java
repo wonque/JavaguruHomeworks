@@ -15,7 +15,7 @@ public class Product {
         this.title = title;
     }
 
-    public void setPrice(double price){
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -30,6 +30,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Title: "+ title +". Price: "+price;
+        return "Title: " + title + ". Price: " + price;
     }
 }

@@ -16,7 +16,7 @@ public class Main {
 
         //Вариант 2
         Library library = new Library();
-        library.addToLibrary("Война и мир", "Лев","Толстой");
+        library.addToLibrary("Война и мир", "Лев", "Толстой");
         library.addToLibrary("Братья Карамазовы", "Федор", "Достоевский");
         library.addToLibrary("Преступление и наказание", "Федор", "Достоевский");
         library.addToLibrary("Властелин Колец", "Джон", "Толкин");

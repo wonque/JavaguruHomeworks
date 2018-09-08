@@ -44,7 +44,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Author: " + getFullAuthorsName() + "\nTitle: "+ title;
+        return "Book: " + getFullAuthorsName() + " - "+ '"' + title +'"';
     }
 
 }

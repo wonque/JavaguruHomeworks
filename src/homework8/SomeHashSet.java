@@ -2,25 +2,25 @@ package homework8;
 
 
 import java.util.Scanner;
+import java.util.HashSet;
 
-public class HashSet {
+public class SomeHashSet {
 
     public static void main(String[] args) {
-        java.util.HashSet<String> strings = new java.util.HashSet<>();
+        HashSet<String> strings = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("Enter some input or press Enter: ");
             String ans = scanner.nextLine();
-            if(ans.equals("")){
+            if (ans.equals("")) {
                 break;
-            }else{
+            } else {
                 strings.add(ans);
             }
-        }System.out.println(strings);
+        }
+        System.out.println(strings);
 
     }
-
-
 
 
 }
