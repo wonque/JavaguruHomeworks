@@ -16,7 +16,6 @@ public class Board {
             if (!item.equals("X") && (!item.equals("0"))) {
                 return false;
             }
-
         }
         return true;
     }
@@ -45,7 +44,6 @@ public class Board {
             if (board[i].equals(character)) {
                 return i;
             }
-
         }
         return -1;
     }

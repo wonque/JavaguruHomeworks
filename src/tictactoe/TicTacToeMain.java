@@ -20,9 +20,7 @@ public class TicTacToeMain {
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("Please, choose 1,2,3 or 0!\n");
-                continue;
             }
-
         }
     }
 }

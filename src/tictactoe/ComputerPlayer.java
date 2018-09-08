@@ -42,16 +42,16 @@ public class ComputerPlayer extends Player {
             int best = -2;
             for (int i = 0; i < currentBoard.getSize(); i++) {
                 //check for empty cells
-                if (!currentBoard.getCharacterFromIndex(i).equals("X")
-                        && !currentBoard.getCharacterFromIndex(i).equals("0")) {
+                String currentCharacterOnBoard = currentBoard.getCharacterFromIndex(i);
+                if (!currentCharacterOnBoard.equals("X")
+                        && !currentCharacterOnBoard.equals("0")) {
                     //get character from cell for future usage
-                    String moveChar = currentBoard.getCharacterFromIndex(i);
                     //make a move for current player
                     currentBoard.setCharacter(i, "X");
                     //call miniMax for opponent
                     best = Math.max(best, miniMax(currentBoard, depth + 1, "0"));
                     //undo the move of current player
-                    currentBoard.setCharacter(i, moveChar);
+                    currentBoard.setCharacter(i, currentCharacterOnBoard);
 
                 }
             }
@@ -59,12 +59,12 @@ public class ComputerPlayer extends Player {
         } else {
             int best = 2;
             for (int i = 0; i < currentBoard.getSize(); i++) {
-                if (!currentBoard.getCharacterFromIndex(i).equals("X")
-                        && !currentBoard.getCharacterFromIndex(i).equals("0")) {
-                    String moveChar = currentBoard.getCharacterFromIndex(i);
+                String currentCharacterOnBoard = currentBoard.getCharacterFromIndex(i);
+                if (!currentCharacterOnBoard.equals("X")
+                        && !currentCharacterOnBoard.equals("0")) {
                     currentBoard.setCharacter(i, "0");
                     best = Math.min(best, miniMax(currentBoard, depth + 1, "X"));
-                    currentBoard.setCharacter(i, moveChar);
+                    currentBoard.setCharacter(i, currentCharacterOnBoard);
 
                 }
             }
@@ -77,20 +77,17 @@ public class ComputerPlayer extends Player {
         int bestValue = -1000;
         String bestMove = "";
 
-        for (int i = 0; i < currentBoard.getSize(); i++)
-            if (!currentBoard.getCharacterFromIndex(i).equals("X") &&
-                    !currentBoard.getCharacterFromIndex(i).equals("0")) {
-                String moveChar = currentBoard.getCharacterFromIndex(i);
+        for (int i = 0; i < currentBoard.getSize(); i++){
+            String currentCharacter = currentBoard.getCharacterFromIndex(i);
+            if (!currentCharacter.equals("X") &&
+                    !currentCharacter.equals("0")) {
                 currentBoard.setCharacter(i, "X");
                 int moveValue = miniMax(currentBoard, 0, "0");
-                currentBoard.setCharacter(i, moveChar);
+                currentBoard.setCharacter(i, currentCharacter);
                 if (moveValue > bestValue) {
                     bestMove = currentBoard.getCharacterFromIndex(i);
                     bestValue = moveValue;
                 }
             }
-
-
-        return bestMove;
-    }
-}
+    }return bestMove;
+}}
