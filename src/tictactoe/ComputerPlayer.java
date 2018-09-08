@@ -8,9 +8,11 @@ public class ComputerPlayer extends Player {
 
     public static final int AI = 0;
     private Random random;
+    private WinChecks winChecks;
 
 
     public ComputerPlayer() {
+        this.winChecks = new WinChecks();
         this.random = new Random();
     }
 
@@ -26,12 +28,12 @@ public class ComputerPlayer extends Player {
 
     }
 
-    private static int miniMax(Board currentBoard, int depth, String symbol) {
+    private int miniMax(Board currentBoard, int depth, String symbol) {
 
-        if (WinChecks.performAll(currentBoard, "X")) {
+        if (winChecks.performAll(currentBoard, "X")) {
             return 1;
         }
-        if (WinChecks.performAll(currentBoard, "0")) {
+        if (winChecks.performAll(currentBoard, "0")) {
             return -1;
         }
         if (currentBoard.isBoardFull() || depth == 9) {

@@ -14,17 +14,14 @@ public class GameModes {
         switch (option) {
             case 1:
                 HumanVsHuman twoHumans = new HumanVsHuman();
-                twoHumans.setupGame();
                 twoHumans.play();
                 break;
             case 2:
                 HumanVsAi humanAi = new HumanVsAi();
-                humanAi.setupGame();
                 humanAi.play();
                 break;
             case 3:
                 AiVsAi bots = new AiVsAi();
-                bots.setupGame();
                 bots.play();
                 break;
             case 0:
@@ -33,7 +30,5 @@ public class GameModes {
 
         }
     }
-
-
 }
 

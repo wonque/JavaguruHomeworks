@@ -6,18 +6,16 @@ import tictactoe.WinChecks;
 import tictactoe.Player;
 
 
-public class AiVsAi extends HumanVsAi {
+public class AiVsAi extends Game {
 
     private ComputerPlayer aiPlayer1;
     private ComputerPlayer aiPlayer2;
 
-    public void setupGame() {
+    public AiVsAi (){
+        super();
         this.aiPlayer1 = new ComputerPlayer();
         this.aiPlayer2 = new ComputerPlayer();
-        Player.setupPlayers(aiPlayer1, aiPlayer2);
-        this.board = new Board();
-        board.generateBoard();
-        this.currentHumanPlayerMove = "";
+
     }
 
     public void play() {
@@ -28,7 +26,7 @@ public class AiVsAi extends HumanVsAi {
             int indexOfAiPlayer1Move = board.getIndexOfCharacter(aiPlayer1Move);
             board.setCharacter(indexOfAiPlayer1Move, aiPlayer1.getSymbol());
             board.displayBoard();
-            if (WinChecks.performAll(board, aiPlayer1.getSymbol())) {
+            if (winChecks.performAll(board, aiPlayer1.getSymbol())) {
                 System.out.println(aiPlayer1.getName().toUpperCase() + " WINS!");
                 break;
             } else if (board.isBoardFull()) {
@@ -37,7 +35,7 @@ public class AiVsAi extends HumanVsAi {
             String aiPlayer2Move = aiPlayer2.chooseRandomMove(board);
             int indexOfAiPlayer2Move = board.getIndexOfCharacter(aiPlayer2Move);
             board.setCharacter(indexOfAiPlayer2Move, aiPlayer2.getSymbol());
-            if (WinChecks.performAll(board, aiPlayer2.getSymbol())) {
+            if (winChecks.performAll(board, aiPlayer2.getSymbol())) {
                 System.out.println(aiPlayer2.getName().toUpperCase() + " WINS!");
                 break;
             } else if (board.isBoardFull()) {

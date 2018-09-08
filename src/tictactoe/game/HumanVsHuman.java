@@ -11,13 +11,12 @@ public class HumanVsHuman extends Game {
     private Player humanPlayer2;
     private Player currentPlayer;
 
-    public void setupGame() {
+    public HumanVsHuman (){
+        super();
         this.humanPlayer1 = new Player();
         this.humanPlayer2 = new Player();
-        Player.setupPlayers(humanPlayer1, humanPlayer2);
-        this.board = new Board();
-        board.generateBoard();
-        this.currentHumanPlayerMove = "";
+        this.setupPlayers(humanPlayer1, humanPlayer2);
+
     }
 
 
@@ -36,14 +35,14 @@ public class HumanVsHuman extends Game {
         board.displayBoard();
         while (totalMoves != MOVES_AVAILABLE) {
             switchHumanPlayers(humanPlayer1, humanPlayer2);
-            if (WinChecks.performAll(board, currentPlayer.getSymbol())) {
+            if (winChecks.performAll(board, currentPlayer.getSymbol())) {
                 System.out.println(currentPlayer.getName().toUpperCase() + " WINS!");
                 break;
             }
             askHumanPlayerForMove(currentPlayer);
             int indexOfCurrentCharacterOnBoard = board.getIndexOfCharacter(currentHumanPlayerMove);
             board.setCharacter(indexOfCurrentCharacterOnBoard, currentPlayer.getSymbol());
-            if (WinChecks.performAll(board, currentPlayer.getSymbol())) {
+            if (winChecks.performAll(board, currentPlayer.getSymbol())) {
                 System.out.println(currentPlayer.getName().toUpperCase() + " WINS!");
                 break;
             }
