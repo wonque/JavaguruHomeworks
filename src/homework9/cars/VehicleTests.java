@@ -1,4 +1,4 @@
-package homework9.Car;
+package homework9.cars;
 
 public class VehicleTests {
 
