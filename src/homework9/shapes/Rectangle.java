@@ -7,7 +7,8 @@ public class Rectangle extends Shape {
 
     public Rectangle(double length, double width) {
         this.length = length;
-        this.width = width; }
+        this.width = width;
+    }
 
     public double getLength() {
         return length;
@@ -33,7 +34,7 @@ public class Rectangle extends Shape {
     public String toString() {
         return "Rectangle{" +
                 "length=" + length +
-                ", width=" + width + ", area=" + calculateArea()+
+                ", width=" + width + ", area=" + calculateArea() +
                 '}';
     }
 }

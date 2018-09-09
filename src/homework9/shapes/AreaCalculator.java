@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class AreaCalculator {
 
-    public static double generateRandomDouble (){
+    public static double generateRandomDouble() {
         return ThreadLocalRandom.current().nextDouble(0, 190.40);
     }
 
@@ -26,7 +26,7 @@ public class AreaCalculator {
         for (int i = 0; i < shapes.size(); i++) {
             System.out.println(shapes.get(i));
             System.out.println();
-            sumOfAreas +=shapes.get(i).calculateArea();
+            sumOfAreas += shapes.get(i).calculateArea();
         }
         System.out.println(Math.round(sumOfAreas));
     }

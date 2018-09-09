@@ -1,11 +1,11 @@
 package homework9.shapes;
 
-public class RegularPolygon extends Shape{
+public class RegularPolygon extends Shape {
 
     private int numberOfSides;
     private double sideLength;
 
-    public RegularPolygon (int numberOfSides, double sideLength){
+    public RegularPolygon(int numberOfSides, double sideLength) {
         this.numberOfSides = numberOfSides;
         this.sideLength = sideLength;
     }
@@ -28,14 +28,14 @@ public class RegularPolygon extends Shape{
 
     @Override
     public double calculateArea() {
-        return (0.25*numberOfSides*sideLength*sideLength/Math.tan(Math.PI/numberOfSides));
+        return (0.25 * numberOfSides * sideLength * sideLength / Math.tan(Math.PI / numberOfSides));
     }
 
     @Override
     public String toString() {
         return "RegularPolygon{" +
                 "numberOfSides=" + numberOfSides +
-                ", sideLength=" + sideLength + ", area=" +calculateArea() +
+                ", sideLength=" + sideLength + ", area=" + calculateArea() +
                 '}';
     }
 }
