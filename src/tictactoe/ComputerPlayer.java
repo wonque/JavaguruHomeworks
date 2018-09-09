@@ -43,11 +43,11 @@ public class ComputerPlayer extends Player {
         if (symbol.equals("X")) {
             int best = -2;
             for (int i = 0; i < currentBoard.getSize(); i++) {
-                //check for empty cells
+                //get character from cell for future usage
                 String currentCharacterOnBoard = currentBoard.getCharacterFromIndex(i);
+                //check for empty cells
                 if (!currentCharacterOnBoard.equals("X")
                         && !currentCharacterOnBoard.equals("0")) {
-                    //get character from cell for future usage
                     //make a move for current player
                     currentBoard.setCharacter(i, "X");
                     //call miniMax for opponent
