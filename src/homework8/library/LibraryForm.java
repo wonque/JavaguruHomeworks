@@ -34,7 +34,7 @@ public class LibraryForm {
 
     private static void displayOptions() {
         System.out.println("To search book by author choose 1.");
-        System.out.println("To search boor by title choose 2.");
+        System.out.println("To search book by title choose 2.");
         System.out.println("To display all available books choose 3.\n");
         System.out.println("Any other input will end program\n");
     }
@@ -46,7 +46,7 @@ public class LibraryForm {
                 break;
             case 1:
                 String author = askForAuthor();
-                library.getOneAuthorBooks(author);
+                library.getArrayOfAuthorsBooks(author);
                 break;
             case 2:
                 String title = askForTitle();

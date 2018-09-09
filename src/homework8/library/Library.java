@@ -1,23 +1,18 @@
 package homework8.library;
 
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Library {
 
-    private LinkedList<Book> allBooks;
+    private List<Book> allBooks;
 
     public Library() {
-        this.allBooks = new LinkedList<>();
+        this.allBooks = new ArrayList<>();
     }
-    //Вариант 1 - перед добавлением создать экземпляр класса Book
-//    public void addToLibrary (Book book){
-//        allBooks.add(book);
-//
-//    }
 
-    //Вариант 2 - создание объекта Book и добавление через объект Library
     public void addToLibrary(String title, String authorsFirstName, String authorsSecondName) {
         Book book = new Book();
         book.setTitle(title);
@@ -26,8 +21,8 @@ public class Library {
         allBooks.add(book);
     }
 
-    public void getOneAuthorBooks(String authorsName) {
-        System.out.println("Search result for author-> " + authorsName + ":\n");
+    public List<Book> getArrayOfAuthorsBooks(String authorsName) {
+        List<Book> books = new ArrayList<>();
         String toFind = authorsName.toLowerCase();
         for (Book item : allBooks) {
             String authorsFullName = item.getFullAuthorsName().toLowerCase();
@@ -35,9 +30,11 @@ public class Library {
             String authorsFirstName = item.getAuthorFirstName().toLowerCase();
             if (authorsFullName.equals(toFind) || authorsFirstName.equals(toFind)
                     || authorsSecondName.equals(toFind)) {
-                System.out.println(item);
+                books.add(item);
             }
         }
+        System.out.println(books);
+        return books;
     }
 
     public void getBooksByTitle(String title) {
