@@ -1,4 +1,4 @@
-package Homework7;
+package homework7;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,7 +10,7 @@ public class User {
     private int lowerBound;
     private int higherBound;
 
-    public User(){
+    public User() {
         this.lowerBound = -1;
         this.higherBound = -1;
         this.userBounds = new Integer[2];
@@ -20,7 +20,7 @@ public class User {
         return higherBound;
     }
 
-    public int getLowerBound () {
+    public int getLowerBound() {
         return lowerBound;
     }
 
@@ -28,43 +28,48 @@ public class User {
         return userBounds;
     }
 
-    private void initializeArrayOfBound (){
+    private void initializeArrayOfBound() {
         this.userBounds[0] = lowerBound;
         this.userBounds[1] = higherBound;
     }
 
 
-    private void askUserForLowerBound () throws InputMismatchException{
+    private void askUserForLowerBound() throws InputMismatchException {
         System.out.println("Enter lower bound (0< Your Input < 100): ");
-        try{
-        int lowAnswer = sc.nextInt();
-        if ((lowAnswer>lowerBound) && (lowAnswer<100)){
-            this.lowerBound = lowAnswer; }
-            else{
+        try {
+            Scanner in = new Scanner(System.in);
+            int lowAnswer = in.nextInt();
+            if ((lowAnswer > lowerBound) && (lowAnswer < 100)) {
+                this.lowerBound = lowAnswer;
+            } else {
                 System.out.println("Invalid input!\n");
                 askUserForLowerBound();
-            }}
-        catch (InputMismatchException e){
+            }
+        } catch (InputMismatchException e) {
             System.out.println("Invalid input!\n");
+            askUserForLowerBound();
         }
 
     }
 
-    private void askUserForHigherBound () throws InputMismatchException {
+    private void askUserForHigherBound() throws InputMismatchException {
         System.out.println("Enter higher bound " + lowerBound + " < Your Input < 100: ");
-        try{
-        int highAnswer = sc.nextInt();
-        if((highAnswer>lowerBound) && highAnswer<=100){
-            this.higherBound = highAnswer;
-        }else{
+        try {
+            Scanner in = new Scanner(System.in);
+            int highAnswer = in.nextInt();
+            if ((highAnswer > lowerBound) && highAnswer <= 100) {
+                this.higherBound = highAnswer;
+            } else {
+                System.out.println("Invalid input!\n");
+                askUserForHigherBound();
+            }
+        } catch (InputMismatchException e) {
             System.out.println("Invalid input!\n");
             askUserForHigherBound();
-        }}catch (InputMismatchException e){
-            System.out.println("Invalid input!\n");
         }
     }
 
-    public void setupUserBound () {
+    public void setupUserBound() {
         askUserForLowerBound();
         askUserForHigherBound();
         initializeArrayOfBound();

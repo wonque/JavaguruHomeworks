@@ -1,4 +1,4 @@
-package Homework7;
+package homework7;
 
 import java.util.Random;
 
@@ -20,30 +20,32 @@ public class ArrayWithUserBounds {
         }
     }
 
-    private static boolean isNumberInBounds (int number, Integer[] userBounds){
-        int lowBound  = userBounds[0];
+    private static boolean isNumberInBounds(int number, Integer[] userBounds) {
+        int lowBound = userBounds[0];
         int highBound = userBounds[1];
-        return (lowBound<=number) && (number<=highBound);
+        return (lowBound <= number) && (number <= highBound);
     }
 
-    private static int calculatePossibleUserArraySize (Integer [] currentArray, Integer[] userBounds){
+    private static int calculatePossibleUserArraySize(Integer[] currentArray, Integer[] userBounds) {
         int arraySize = 0;
-        for (int number : currentArray){
-            if(isNumberInBounds(number,userBounds)){
+        for (int number : currentArray) {
+            if (isNumberInBounds(number, userBounds)) {
                 arraySize++;
             }
-        }return arraySize;
+        }
+        return arraySize;
     }
 
-    public static Integer[] createNewArrayUsingBounds (Integer[] currentArray, Integer[] userBound){
+    public static Integer[] createNewArrayUsingBounds(Integer[] currentArray, Integer[] userBound) {
         int newArraySize = calculatePossibleUserArraySize(currentArray, userBound);
         Integer[] userBoundArray = new Integer[newArraySize];
         int index = 0;
-        for (int i=0; i< currentArray.length; i++){
-            if(isNumberInBounds(currentArray[i], userBound )){
+        for (int i = 0; i < currentArray.length; i++) {
+            if (isNumberInBounds(currentArray[i], userBound)) {
                 userBoundArray[index] = currentArray[i];
                 index++;
             }
-        }return userBoundArray;
+        }
+        return userBoundArray;
     }
 }
