@@ -12,12 +12,14 @@ public abstract class Game {
     public String currentHumanPlayerMove;
     public Board board;
     public WinChecks winChecks;
+    public int totalMoves;
 
     Game(){
         this.winChecks = new WinChecks();
         this.currentHumanPlayerMove = "";
         this.board = new Board();
         board.generateBoard();
+        this.totalMoves = 0;
     }
 
     public abstract void play();
@@ -46,6 +48,10 @@ public abstract class Game {
             player1.setName("Clint Eastwood");
             player2.setName("Chuck Norris");
         }
+    }
+
+    public boolean isDraw(){
+        return totalMoves==MOVES_AVAILABLE;
     }
 
     public void setupPlayers(Player player1, Player player2){

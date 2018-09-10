@@ -1,8 +1,6 @@
 package tictactoe.game;
 
-import tictactoe.Board;
 import tictactoe.ComputerPlayer;
-import tictactoe.WinChecks;
 import tictactoe.Player;
 
 public class HumanVsAi extends Game {
@@ -20,14 +18,13 @@ public class HumanVsAi extends Game {
     }
 
     public void play() {
-        int totalMoves = 0;
         board.displayBoard();
-        while (totalMoves != MOVES_AVAILABLE) {
+        while (!isDraw()) {
             askHumanPlayerForMove(humanPlayer1);
             int indexOfNUmberToReplace = board.getIndexOfCharacter(currentHumanPlayerMove);
             board.setCharacter(indexOfNUmberToReplace, humanPlayer1.getSymbol());
             board.displayBoard();
-            if (winChecks.performAll(board, humanPlayer1.getSymbol())) {
+            if (winChecks.haveAWinner(board, humanPlayer1.getSymbol())) {
                 System.out.println(humanPlayer1.getName().toUpperCase() + " WINS!");
                 break;
             } else if (board.isBoardFull()) {
@@ -37,7 +34,7 @@ public class HumanVsAi extends Game {
             String bestAiMove = aiPlayer1.findBestMove(board);
             int indexOfBestAiMove = board.getIndexOfCharacter(bestAiMove);
             board.setCharacter(indexOfBestAiMove, aiPlayer1.getSymbol());
-            if (winChecks.performAll(board, aiPlayer1.getSymbol())) {
+            if (winChecks.haveAWinner(board, aiPlayer1.getSymbol())) {
                 System.out.println(aiPlayer1.getName().toUpperCase() + " WINS!");
                 break;
             }
