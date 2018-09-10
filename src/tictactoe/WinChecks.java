@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class WinChecks {
 
-    public boolean performAll(Board gameField, String symbol) {
+    public boolean haveAWinner(Board gameField, String symbol) {
         return horizontalCheck(gameField, symbol) || verticalCheck(gameField, symbol)
                 || diagonalCheck(gameField, symbol);
     }

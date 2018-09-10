@@ -30,10 +30,10 @@ public class ComputerPlayer extends Player {
 
     private int miniMax(Board currentBoard, int depth, String symbol) {
 
-        if (winChecks.performAll(currentBoard, "X")) {
+        if (winChecks.haveAWinner(currentBoard, "X")) {
             return 1;
         }
-        if (winChecks.performAll(currentBoard, "0")) {
+        if (winChecks.haveAWinner(currentBoard, "0")) {
             return -1;
         }
         if (currentBoard.isBoardFull() || depth == 9) {
