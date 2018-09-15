@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public abstract class Game {
 
-    public static final int MOVES_AVAILABLE = 9;
-    public String currentHumanPlayerMove;
-    public Board board;
-    public WinChecks winChecks;
-    public int totalMoves;
+    protected static final int MOVES_AVAILABLE = 9;
+    protected String currentHumanPlayerMove;
+    protected Board board;
+    protected WinChecks winChecks;
+    protected int totalMoves;
 
     Game(){
         this.winChecks = new WinChecks();

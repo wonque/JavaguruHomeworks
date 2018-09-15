@@ -1,8 +1,5 @@
 package tictactoe.game;
 
-
-import tictactoe.Board;
-import tictactoe.WinChecks;
 import tictactoe.Player;
 
 public class HumanVsHuman extends Game {
@@ -50,7 +47,6 @@ public class HumanVsHuman extends Game {
         board.displayBoard();
         System.out.println("GAME OVER!");
     }
-
 }
 
 
