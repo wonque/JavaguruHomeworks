@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class CalcForm {
 
-
     public double getNumber() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number: ");
