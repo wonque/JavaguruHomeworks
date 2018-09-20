@@ -1,4 +1,4 @@
-package tictactoe.game;
+package tictactoe;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -6,8 +6,16 @@ import java.util.Scanner;
 public class GameModes {
 
     private int option;
+    private Player humanPlayer1;
+    private Player humanPlayer2;
+    private ComputerPlayer aiPlayer1;
+    private ComputerPlayer aiPlayer2;
 
     public GameModes() {
+        this.humanPlayer1 = new Player();
+        this.humanPlayer2 = new Player();
+        this.aiPlayer1 = new ComputerPlayer();
+        this.aiPlayer2 = new ComputerPlayer();
         this.option = -1;
     }
 
@@ -48,16 +56,16 @@ public class GameModes {
     private void applyGameMode(int option) {
         switch (option) {
             case 1:
-                HumanVsHuman twoHumans = new HumanVsHuman();
+                Game twoHumans = new Game(humanPlayer1, humanPlayer2);
                 twoHumans.play();
                 break;
             case 2:
-                HumanVsAi humanAi = new HumanVsAi();
-                humanAi.play();
+                Game gameVsAi = new Game(humanPlayer1, aiPlayer1);
+                gameVsAi.play();
                 break;
             case 3:
-                AiVsAi bots = new AiVsAi();
-                bots.play();
+                Game aiVsAi = new Game(aiPlayer1, aiPlayer2);
+                aiVsAi.play();
                 break;
             default:
                 System.out.println("Bye!");

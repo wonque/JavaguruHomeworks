@@ -1,7 +1,5 @@
 package tictactoe;
 
-import tictactoe.game.GameModes;
-
 public class TicTacToeMain {
 
     public static void main(String[] args) {
