@@ -1,7 +1,0 @@
-<application>
-  <component name="GithubAccounts">
-    <account id="51e83c03-9c86-496e-b2db-46c84784a7e2" name="wonque">
-      <server host="github.com" />
-    </account>
-  </component>
-</application>
