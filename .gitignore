@@ -12,6 +12,7 @@
 *.iws
 *.iml
 *.ipr
+*.xml
 
 # Packages #
 ############
@@ -44,4 +45,4 @@ Thumbs.db
 
 /out/*
 /_mac/*
-*.xlm
+/.idea/*

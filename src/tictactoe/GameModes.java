@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class GameModes {
 
     private int option;
-    private Player humanPlayer1;
-    private Player humanPlayer2;
+    private HumanPlayer humanPlayer1;
+    private HumanPlayer humanPlayer2;
     private ComputerPlayer aiPlayer1;
     private ComputerPlayer aiPlayer2;
 
     public GameModes() {
-        this.humanPlayer1 = new Player();
-        this.humanPlayer2 = new Player();
+        this.humanPlayer1 = new HumanPlayer();
+        this.humanPlayer2 = new HumanPlayer();
         this.aiPlayer1 = new ComputerPlayer();
         this.aiPlayer2 = new ComputerPlayer();
         this.option = -1;

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class ComputerPlayer extends Player {
+public class ComputerPlayer extends HumanPlayer {
 
     public static final int AI = 0;
     private Random random;

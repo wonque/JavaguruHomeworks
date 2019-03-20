@@ -6,14 +6,14 @@ public class Game {
 
     private static final int MOVES_AVAILABLE = 9;
     private String currentHumanPlayerMove;
-    private Player currentPlayer;
+    private HumanPlayer currentPlayer;
     private Board board;
     private WinChecks winChecks;
     private int totalMoves;
-    private Player player1;
-    private Player player2;
+    private HumanPlayer player1;
+    private HumanPlayer player2;
 
-    public Game(Player player1, Player player2) {
+    public Game(HumanPlayer player1, HumanPlayer player2) {
         this.winChecks = new WinChecks();
         this.currentHumanPlayerMove = "";
         this.board = new Board();
@@ -24,7 +24,7 @@ public class Game {
         setupPlayers(player1, player2);
     }
 
-    private void switchPlayers(Player player1, Player player2) {
+    private void switchPlayers(HumanPlayer player1, HumanPlayer player2) {
         if (currentPlayer == null || currentPlayer == player2) {
             currentPlayer = player1;
         } else if (currentPlayer.equals(player1)) {
@@ -32,7 +32,7 @@ public class Game {
         }
     }
 
-    private void makeGameMove(Player player) {
+    private void makeGameMove(HumanPlayer player) {
         if (player.isHuman()) {
             askHumanPlayerForMove(player);
             int indexOfNUmberToReplace = board.getIndexOfCharacter(currentHumanPlayerMove);
@@ -64,12 +64,12 @@ public class Game {
 
     }
 
-    private void assignSymbols(Player player1, Player player2) {
+    private void assignSymbols(HumanPlayer player1, HumanPlayer player2) {
         player1.setSymbol("0");
         player2.setSymbol("X");
     }
 
-    private void assignNames(Player player1, Player player2) {
+    private void assignNames(HumanPlayer player1, HumanPlayer player2) {
         if (player1.isHuman() && player2.isHuman()) {
             player1.setName("Player 1");
             player2.setName("Player 2");
@@ -86,12 +86,12 @@ public class Game {
         return totalMoves == MOVES_AVAILABLE;
     }
 
-    public void setupPlayers(Player player1, Player player2) {
+    public void setupPlayers(HumanPlayer player1, HumanPlayer player2) {
         assignNames(player1, player2);
         assignSymbols(player1, player2);
     }
 
-    public void askHumanPlayerForMove(Player player) {
+    public void askHumanPlayerForMove(HumanPlayer player) {
         Scanner scObject = new Scanner(System.in);
         System.out.println(player.getName() + ", make a move: ");
         String input = scObject.next();
